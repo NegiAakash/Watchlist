@@ -60,7 +60,7 @@
   
   @media (max-width: 768px) {
     .popup-wrapper {
-      width: 90vw;
+      /* width: 90vw; */
     }
   
     .popup-content {
