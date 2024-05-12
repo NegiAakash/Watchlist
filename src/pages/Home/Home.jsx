@@ -12,7 +12,6 @@ function Home(props) {
   const [cardDetailsData, setCardDetailsData] = React.useState({});
 
   function handleCardClick(e) {
-    console.log("Here", e);
     setCardDetailsData(e);
     setIsPopupVisible(true);
   }

@@ -21,7 +21,6 @@ const Watchlist = (props) => {
   const wishlistName = useParams().name;
 
   function clickHandler(e) {
-    console.log("Here", e);
     setCardDetailsData(e);
     setIsPopupVisible(true);
   }

@@ -19,7 +19,6 @@ function Search({ hasbutton = false, setLoading, setMovieData }) {
     const data = await getApiCall("https://www.omdbapi.com/", search);
 
     if (!data.isError) {
-      console.log(data);
       setMovieData([data]);
       handleNavigation("/");
     } else {
