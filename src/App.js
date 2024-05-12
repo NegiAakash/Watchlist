@@ -9,7 +9,6 @@ import Error from "./pages/Error/Error";
 import Layout from "./components/Layout/Layout";
 import Landing from "./components/Landing/Landing";
 import Home from "./pages/Home/Home";
-import MovieDetails from "./pages/MovieDetails/MovieDetails";
 import Watchlist from "./pages/Watchlist/Watchlist";
 
 function App(props) {
@@ -23,7 +22,6 @@ function App(props) {
       <Route element={<Layout />}>
         <Route path="/" element={<Landing />}>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/movie/:id" element={<MovieDetails />} />
           <Route path="/wishlist/:name" element={<Watchlist />} />
         </Route>
       </Route>
