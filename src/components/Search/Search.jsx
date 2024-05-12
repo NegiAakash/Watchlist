@@ -16,7 +16,7 @@ function Search({ hasbutton = false, setLoading, setMovieData }) {
 
   async function getMovieData() {
     setLoading(true);
-    const data = await getApiCall("http://www.omdbapi.com/", search);
+    const data = await getApiCall("https://www.omdbapi.com/", search);
 
     if (!data.isError) {
       console.log(data);
