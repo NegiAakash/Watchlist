@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Watchlist/static/css/main.71700f36.css",
-    "main.js": "/Watchlist/static/js/main.3832a171.js",
+    "main.css": "/Watchlist/static/css/main.0351d303.css",
+    "main.js": "/Watchlist/static/js/main.f31624c9.js",
     "static/js/453.16bfb2b8.chunk.js": "/Watchlist/static/js/453.16bfb2b8.chunk.js",
     "static/media/login.svg": "/Watchlist/static/media/login.11bcd120a134bc04086e9954254f4585.svg",
     "static/media/bookmark.svg": "/Watchlist/static/media/bookmark.8cdd24129861f2b7d42b57aa463d09cf.svg",
@@ -13,12 +13,12 @@
     "static/media/home.svg": "/Watchlist/static/media/home.689236651ca55e6de795631aee56ba37.svg",
     "static/media/searchIcon.svg": "/Watchlist/static/media/searchIcon.01da7b90b09620b3b6c61977cfa584e0.svg",
     "static/media/yellow_smiley.svg": "/Watchlist/static/media/yellow_smiley.800f2f33074bca1a0822c06e3a15e09d.svg",
-    "main.71700f36.css.map": "/Watchlist/static/css/main.71700f36.css.map",
-    "main.3832a171.js.map": "/Watchlist/static/js/main.3832a171.js.map",
+    "main.0351d303.css.map": "/Watchlist/static/css/main.0351d303.css.map",
+    "main.f31624c9.js.map": "/Watchlist/static/js/main.f31624c9.js.map",
     "453.16bfb2b8.chunk.js.map": "/Watchlist/static/js/453.16bfb2b8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.71700f36.css",
-    "static/js/main.3832a171.js"
+    "static/css/main.0351d303.css",
+    "static/js/main.f31624c9.js"
   ]
 }
