@@ -22,9 +22,41 @@
     flex-direction: column;
     padding: 14px 0;
     gap:10px;
+    position: relative;
 }
 
 .wishlist-desc > div{
     font-size: var(--heading4);
     font-weight: 600;
+}
+
+.edit-wishlist{
+    background: transparent;
+    color:black;
+    border: black 1px solid;
+    width: fit-content;
+    position: absolute;
+    right:200px;
+}
+
+.editable-wishlist-name{
+    border: 1px solid black;
+}
+
+.editable-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+@media screen and (max-width:768px) {
+    .edit-wishlist{
+        background: transparent;
+        color:black;
+        border: black 1px solid;
+        width: fit-content;
+        position: absolute;
+        right:10px;
+    } 
 }

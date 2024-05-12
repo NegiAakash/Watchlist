@@ -1,55 +1,95 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
+import { updateWishlistDetails } from "../../redux/action";
 import Card from "../../components/Card/Card";
 import MovieDetailPopup from "../../components/MovieDetailPopup/MovieDetailPopup";
 
 import "./Watchlist.css";
 
-const Watchlist = (props) => {
-  const [unavailable, setUnavailable] = React.useState(false);
-  const [isPopupVisible, setIsPopupVisible] = React.useState(false);
-  const [cardDetailsData, setCardDetailsData] = React.useState({});
+const Watchlist = ({ wishlist, updateWishlist }) => {
+  const [unavailable, setUnavailable] = useState(false);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [cardDetailsData, setCardDetailsData] = useState({});
+  const [editableWishlistName, setEditableWishlistName] = useState("");
+  const [editableWishlistDesc, setEditableWishlistDesc] = useState("");
+  const [editMode, setEditMode] = useState(false);
+  const { name: wishlistName } = useParams();
 
-  React.useEffect(() => {
-    if (Object.keys(props.wishlist).length <= 0) {
-      setUnavailable(true);
-    } else {
-      setUnavailable(false);
+  useEffect(() => {
+    if (wishlist[wishlistName]) {
+      setEditableWishlistName(wishlistName);
+      setEditableWishlistDesc(wishlist[wishlistName][0]?.wishlistDesc || "");
     }
-  }, [props.wishlist]);
-  const wishlistName = useParams().name;
+    setUnavailable(Object.keys(wishlist).length <= 0);
+  }, [wishlist, wishlistName]);
 
-  function clickHandler(e) {
-    setCardDetailsData(e);
+  const clickHandler = (movieDetails) => {
+    setCardDetailsData(movieDetails);
     setIsPopupVisible(true);
-  }
+  };
+
+  const handleUpdateWishlist = () => {
+    updateWishlist(wishlistName, editableWishlistName, editableWishlistDesc);
+    setEditMode(false);
+  };
+
   return (
     <>
       {unavailable ? (
         <h1>Wrong page</h1>
       ) : (
         <div className="wishlist-wrapper">
-          <div className="wishlist-title">{wishlistName}</div>
-          <div className="wishlist-desc">
-            <div>About this watchlist</div>
-            <span>{props.wishlist[wishlistName][0].wishlistDesc}</span>
-          </div>
+          {editMode ? (
+            <div className="editable-wrapper">
+              <input
+                className="editable-wishlist-name"
+                type="text"
+                value={editableWishlistName}
+                onChange={(e) => setEditableWishlistName(e.target.value)}
+              />
+              <textarea
+                className="editable-wishlist-desc"
+                value={editableWishlistDesc}
+                onChange={(e) => setEditableWishlistDesc(e.target.value)}
+              />
+              <button
+                className="save-wishlist-changes"
+                type="button"
+                onClick={handleUpdateWishlist}
+              >
+                Save
+              </button>
+            </div>
+          ) : (
+            <>
+              <div className="wishlist-title">{editableWishlistName}</div>
+              <div className="wishlist-desc">
+                <div>About this watchlist</div>
+                <span>{editableWishlistDesc}</span>
+                <button
+                  className="edit-wishlist"
+                  type="button"
+                  onClick={() => setEditMode(true)}
+                >
+                  Edit
+                </button>
+              </div>
+            </>
+          )}
           <div className="wishlist-body">
-            {props.wishlist[wishlistName].length <= 0 ? (
-              <h2>No movie present</h2>
+            {Array.isArray(wishlist[editableWishlistName]) ? (
+              wishlist[editableWishlistName].map((movie, index) => (
+                <Card
+                  item={movie}
+                  key={index}
+                  isWatchlisted={true}
+                  currentWishlistName={editableWishlistName}
+                  onClickEvent={clickHandler}
+                />
+              ))
             ) : (
-              props.wishlist[wishlistName].map((it, index) => {
-                return (
-                  <Card
-                    item={it}
-                    key={index}
-                    isWatchlisted={true}
-                    currentWishlistName={wishlistName}
-                    onClickEvent={clickHandler}
-                  />
-                );
-              })
+              <h2>No movie present</h2>
             )}
           </div>
         </div>
@@ -64,15 +104,15 @@ const Watchlist = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    // removeFromWishlist: (data) => dispatch(removeFromWishlist(data)),
-  };
-};
-const mapStateToProps = (state) => {
-  return {
-    wishlist: state.wishlist,
-  };
-};
+const mapDispatchToProps = (dispatch) => ({
+  updateWishlist: (wishlistName, newWishlistName, newWishlistDesc) =>
+    dispatch(
+      updateWishlistDetails(wishlistName, newWishlistName, newWishlistDesc)
+    ),
+});
+
+const mapStateToProps = (state) => ({
+  wishlist: state.wishlist,
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Watchlist);

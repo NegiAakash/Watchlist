@@ -18,7 +18,17 @@ export const removeFromWishlist = (movie) => ({
   payload: movie,
 });
 
-export const setAuthenticated = (movie) => ({
+export const setAuthenticated = (isAuthenticated) => ({
   type: "SET_AUTHENTICATED",
-  payload: movie,
+  payload: isAuthenticated,
+});
+
+// Action creator for updating wishlist details
+export const updateWishlistDetails = (
+  wishlistName,
+  newWishlistName,
+  newWishlistDesc
+) => ({
+  type: "UPDATE_WISHLIST_DETAILS",
+  payload: { wishlistName, newWishlistName, newWishlistDesc },
 });
