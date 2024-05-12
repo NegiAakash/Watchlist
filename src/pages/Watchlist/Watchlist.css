@@ -1,0 +1,19 @@
+.wishlist-wrapper{
+    width: 100%;
+    padding: 20px;
+}
+
+
+.wishlist-wrapper > .wishlist-title{
+    font-size: var(--heading2);
+    font-weight: 800;
+    color: var(--orange);
+}
+
+
+.wishlist-wrapper > .wishlist-body{
+    padding: 3rem 0rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}

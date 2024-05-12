@@ -1,0 +1,38 @@
+.banner-wrapper{
+  border: 2px solid var(--orange);
+  border-radius: 4px;
+  padding: 20px;
+  max-width: 100%;
+  line-height: 2rem;
+}
+  .banner-title {
+    display: flex;
+    font-size: var(--heading1);
+    font-weight: 400;
+    margin-bottom: 20px;
+
+}
+.banner-title > p {
+  color: var(--orange);
+}
+
+@media (max-width: 768px) {
+ .banner-wrapper{
+  border: 2px solid var(--orange);
+  border-radius: 4px;
+  padding: 20px;
+  width: 100%;
+  line-height: 2rem;
+}
+.banner-title {
+  display: flex;
+  font-size: var(--heading2);
+  font-weight: 400;
+  margin-bottom: 20px;
+
+}
+}
+
+@media (max-width: 480px) {
+  
+}

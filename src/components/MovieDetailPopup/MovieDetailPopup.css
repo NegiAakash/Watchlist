@@ -1,0 +1,71 @@
+/* MoviePopup.css */
+.popup-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Set a max-width for larger screens */
+    margin: auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+  }
+  
+  .popup-wrapper:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  }
+  
+  .popup-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background: rgba(20, 20, 20, 0.85); /* Dark background with opacity */
+    color: #fff;
+    text-align: center;
+  }
+  
+  .popup-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: inherit; /* Inherit the background image from the wrapper */
+    filter: blur(8px); /* Blur effect for the background */
+    z-index: -1;
+  }
+  
+  .popup-content h2 {
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #f9ca24; /* Gold color for the movie title */
+  }
+  
+  .popup-content p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+  
+  .popup-content strong {
+    font-weight: 600;
+    color: #e1e1e1;
+  }
+  
+  @media (max-width: 768px) {
+    .popup-wrapper {
+      width: 90vw;
+    }
+  
+    .popup-content {
+      padding: 20px;
+      width: 90vw;
+    }
+  }
+  

@@ -1,0 +1,28 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  max-width: 100vw;
+}
+
+img {
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+
+
+:root {
+  --orange : #F33F40;
+  --orange-light : #f33f3f96;
+
+  --black : #293241;
+  --white: #E9ECF5;
+  --light-grey: #ccc;
+
+  --heading1 : 3rem;
+  --heading2 : 2rem;
+  --heading3 : 1.5rem;
+  --heading4 : 1rem;
+}
