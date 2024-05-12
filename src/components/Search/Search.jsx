@@ -5,6 +5,7 @@ import { ReactComponent as SearchIcon } from "../../assets/searchIcon.svg";
 import "./Search.css";
 import { addToWishlist, setLoading, setMovieData } from "../../redux/action";
 import { useNavigate } from "react-router-dom";
+import sendToast from "../../util/util";
 
 function Search({ hasbutton = false, setLoading, setMovieData }) {
   const [search, setSearch] = React.useState("");
@@ -22,7 +23,12 @@ function Search({ hasbutton = false, setLoading, setMovieData }) {
       setMovieData([data]);
       handleNavigation("/");
     } else {
-      alert("Something went wrong please try again later.");
+      sendToast(
+        data.message
+          ? data.message
+          : "Something went wrong. Please try again later.",
+        "ERROR"
+      );
     }
     setLoading(false);
   }

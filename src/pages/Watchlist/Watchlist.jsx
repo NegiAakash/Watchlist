@@ -30,7 +30,11 @@ const Watchlist = (props) => {
         <h1>Wrong page</h1>
       ) : (
         <div className="wishlist-wrapper">
-          <div className="wishlist-title">{wishlistName} Wishlist</div>
+          <div className="wishlist-title">{wishlistName}</div>
+          <div className="wishlist-desc">
+            <div>About this watchlist</div>
+            <span>{props.wishlist[wishlistName][0].wishlistDesc}</span>
+          </div>
           <div className="wishlist-body">
             {props.wishlist[wishlistName].length <= 0 ? (
               <h2>No movie present</h2>

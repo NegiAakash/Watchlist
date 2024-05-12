@@ -9,6 +9,7 @@ import { addToWishlist, removeFromWishlist } from "../../redux/action";
 import { connect } from "react-redux";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
+import sendToast from "../../util/util";
 
 const Card = ({
   item,
@@ -21,6 +22,7 @@ const Card = ({
 }) => {
   const [isPopupVisible, setIsPopupVisible] = React.useState(false);
   const [wishlistName, setwishlistName] = React.useState("");
+  const [wishlistDesc, setwishlistDesc] = React.useState("");
 
   const validElements = Object.keys(item).filter((i) =>
     movieCardDetails.includes(i)
@@ -97,6 +99,14 @@ const Card = ({
             value={wishlistName}
             onChange={(e) => setwishlistName(e.target.value)}
           />
+
+          <textarea
+            name="wishlistName"
+            id="watch-list-name"
+            placeholder="Please enter watchlist name"
+            value={wishlistDesc}
+            onChange={(e) => setwishlistDesc(e.target.value)}
+          />
           <button
             type="button"
             disabled={wishlistName.length <= 0}
@@ -105,9 +115,11 @@ const Card = ({
                 setWishlist({
                   wishlistName: wishlistName.toUpperCase(),
                   item: item,
+                  wishlistDesc,
                 });
                 setIsPopupVisible(false);
-                alert(`Wishlisted!!`);
+                // alert(`Wishlisted!!`);
+                sendToast("Movie wishlisted!", "SUCCESS");
                 setwishlistName("");
               }
             }}

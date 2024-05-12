@@ -6,8 +6,7 @@
 
 .wishlist-wrapper > .wishlist-title{
     font-size: var(--heading2);
-    font-weight: 800;
-    color: var(--orange);
+    font-weight: 600;
 }
 
 
@@ -16,4 +15,16 @@
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
+}
+
+.wishlist-desc{
+    display: flex;
+    flex-direction: column;
+    padding: 14px 0;
+    gap:10px;
+}
+
+.wishlist-desc > div{
+    font-size: var(--heading4);
+    font-weight: 600;
 }

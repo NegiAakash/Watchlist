@@ -1,4 +1,5 @@
 import "./Banner.css";
+import { ReactComponent as Bookmark } from "../../assets/bookmark.svg";
 
 function Banner() {
   return (
@@ -13,7 +14,9 @@ function Banner() {
         </p>
         <p>
           Just click the
-          <span> I </span>
+          <span>
+            <Bookmark className="bookmark-icon" />{" "}
+          </span>
           to add a movie, the poster to see more details
         </p>
       </div>

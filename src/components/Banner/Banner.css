@@ -16,6 +16,12 @@
   color: var(--orange);
 }
 
+.bookmark-icon{
+  display: inline-flex;
+  width: 20px;
+  height: fit-content;
+}
+
 @media (max-width: 768px) {
  .banner-wrapper{
   border: 2px solid var(--orange);
@@ -31,8 +37,4 @@
   margin-bottom: 20px;
 
 }
-}
-
-@media (max-width: 480px) {
-  
 }

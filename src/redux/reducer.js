@@ -19,15 +19,16 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, movieData: action.payload };
 
     case "ADD_TO_WISHLIST":
-      const { item, wishlistName } = action.payload;
+      const { item, wishlistName, wishlistDesc } = action.payload;
       user = sessionStorage.getItem("user-email");
+      let itemVal = { ...item, wishlistDesc };
       const updatedWishlist = { ...state.wishlist };
       const wishlistItems = updatedWishlist[wishlistName] || [];
 
       if (
         !wishlistItems.some((wishlistItem) => wishlistItem.Title === item.Title)
       ) {
-        updatedWishlist[wishlistName] = [...wishlistItems, item];
+        updatedWishlist[wishlistName] = [...wishlistItems, itemVal];
       }
 
       localStorage.setItem(user, JSON.stringify(updatedWishlist));
